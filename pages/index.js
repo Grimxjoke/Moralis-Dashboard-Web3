@@ -5,6 +5,8 @@ import Profile from "../components/Profile"
 
 import { useMoralis } from "react-moralis"
 import Balance from "../components/Balance"
+import Transactions from "../components/Transactions"
+import Nft from "../components/Nft"
 
 
 
@@ -68,10 +70,14 @@ export default function Home() {
                 <Profile user={user} />
               </TabPanel>
               <TabPanel>
-                <Balance />
+                <Balance user={user} />
               </TabPanel>
-              <TabPanel>Transactions</TabPanel>
-              <TabPanel>NFT</TabPanel>
+              <TabPanel>
+                <Transactions user={user} />
+              </TabPanel>
+              <TabPanel>
+                <Nft user={user} />
+              </TabPanel>
               <TabPanel>Exchange</TabPanel>
             </TabPanels>
           </Tabs>

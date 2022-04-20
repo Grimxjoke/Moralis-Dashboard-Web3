@@ -7,7 +7,7 @@ import { useMoralis } from 'react-moralis'
 export default function Profile({ user }) {
     const [input, setInput] = useState('')
     const { setUserData, isUserUpdating } = useMoralis()
-    console.log(input);
+    // console.log(input);
     return (
         <CustomContainer>
             <Text> <b> 😁&nbsp; Username: </b>{user.getUsername()} </Text>

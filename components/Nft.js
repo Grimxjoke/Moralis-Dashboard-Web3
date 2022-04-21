@@ -9,7 +9,8 @@ export default function Nft({ user }) {
 
     const { getNFTBalances, data } = useNFTBalances()
 
-    const BASE_URL_IPFS = "https://ipfs.io/ipfs/"
+    const BASE_URL_OPENSEA = "https://testnets.opensea.io/assets/"
+    //token_address/token_id
 
     useEffect(() => {
         getNFTBalances({
@@ -20,20 +21,21 @@ export default function Nft({ user }) {
         })
     }, [])
 
-    console.log(data);
+    console.log(data.total);
+
+
 
     return (
         <CustomContainer>
 
 
-            <Text fontSize="xl" fontWeight="bold">My Nfts</Text>
+            <Text fontSize="xl" fontWeight="bold">{`My Nfts ( ${data.total} ) `}</Text>
             {data && data.result.map(nft => (
-                <Box key={nft.token_uri} mt='4' px='2' py='2' borderWidth="1px" borderRadius="md">
-                    {nft.image && <Image alt="nft" src={nft.image} />}
-
+                <Box key={nft.token_hash} mt='4' px='2' py='2' borderWidth="1px" borderRadius="md">
+                    <a href={`${BASE_URL_OPENSEA}${nft.token_address}/${nft.token_id}`} target="_blank" rel="noreferrer noopener">⛵&nbsp;Click to see on Open Sea</a>
                 </Box>
             ))
             }
-        </CustomContainer >
+        </CustomContainer>
     )
 }

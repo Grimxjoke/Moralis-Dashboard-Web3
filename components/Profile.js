@@ -29,6 +29,7 @@ export default function Profile({ user }) {
                     type="submit"
                     colorScheme="purple"
                     disabled={isUserUpdating}
+                    mt='4'
                 >✔️&nbsp; Change Username</Button>
             </form>
         </CustomContainer>
